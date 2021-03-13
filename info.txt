@@ -1,0 +1,30 @@
+Library Web Application [Date: 6th March 2021]
+===========================================================================================================
+
+- Application created using Express JS
+- Website template
+    Author: www.free-css.com
+    Description: https://www.free-css.com/free-css-templates/page247/kindle
+    Preview: https://www.free-css.com/assets/files/free-css-templates/preview/page247/kindle/
+
+-----------------------------------------------------------------------------------------------------------
+
+- all lists usch as list of books, users, navbar links and so on are handled as external JSON data files
+- current list of books collected from
+    - https://isbn.gov.in/Recently_Published_Books.aspx
+    - https://www.worldcat.org/
+- book list can be viewed in list or grid mode
+- all books are identified with EAN (European Article Number)
+    - if EAN is not available for newly added books
+        - id is set as number of milliseconds elapsed since January 1, 1970 - Date.now()
+    - ISBN (International Standard Book Number) is an internationally unique book number
+        - example: 9389160170
+    - EAN (European Article Number) is the barcode format of the ISBN
+        - International Article Number (also known as European Article Number) is a standard describing a
+          barcode symbology and numbering system used in global trade to identify a specific retail product
+          type, in a specific packaging configuration, from a specific manufacturer.
+        - example: 978-93-89160-17-8
+        - format: [EAN]-[Group]-[Publisher]-[Title]-[Check Digit]
+        - EAN lookup: https://www.ean-search.org/
+
+-----------------------------------------------------------------------------------------------------------

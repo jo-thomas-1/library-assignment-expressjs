@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title><%=title%></title>
+		<!-- Favicon -->
+		<link rel="shortcut icon" type="image/icon" href="/images/favicon.ico"/>
+		<!-- Font Awesome -->
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+		<!-- Bootstrap -->
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Slick slider -->
+		<link href="/css/slick.css" rel="stylesheet">
+		<!-- Theme color -->
+		<link id="switcher" href="/css/default-theme.css" rel="stylesheet">
+		<!-- Main Style -->
+		<link href="/css/style.css" rel="stylesheet">
+		<link rel="stylesheet" href="/css/login.css">
+
+		<!-- Fonts -->
+
+		<!-- Open Sans for body font -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800" rel="stylesheet">
+		<!-- Lato for Title -->
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	</head>
+
+	<body>
+		<!-- Start Header -->
+		<header id="mu-header" class="" role="banner">
+			<div class="container">
+				<nav class="navbar navbar-default mu-navbar">
+					<div class="container-fluid">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+
+							<!-- Text Logo -->
+							<a class="navbar-brand" href="/"><i class="fa fa-book" aria-hidden="true"></i> Library</a>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav mu-menu navbar-right">
+								<%for(i=0; i<nav.length; i++) {%>
+									<li><a href="<%=nav[i]['href']%>"><%=nav[i]['name']%></a></li>
+								<%}%>
+								<%if(current_user === 0){%>
+									<li><a href="/account/register">REGISTER</a></li>
+								<%}%>
+							</ul>
+						</div><!-- /.navbar-collapse -->
+					</div><!-- /.container-fluid -->
+				</nav>
+			</div>
+		</header>
+		<!-- End Header -->
+
+		<!-- START Featured Section -->
+		<section id="mu-hero" style="min-height: 100vh; min-width: 100vw; overflow: hidden;">
+			<div class="row">
+				<div class="container">
+
+					<div class="card text-center" id="login_card">
+						<div class="card-body">
+							<h5 class="card-title d-inline">Login</h5>
+							<div class="alert" id="login_message_box" role="alert">
+								<span id="login_message"></span>
+								<button type="button" class="close d-inline" data-dismiss="alert" aria-label="Close" onclick="close_alert('#login_message_box');">
+									<span aria-hidden="true">&times;</span>
+								</button>
+							</div>
+							<form action="" method="POST" onsubmit="" id="login_form">
+								<div class="form-row">
+									<div class="col">
+										<input type="text" class="form-control mb-2" name="username" id="username" placeholder="Username" required>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="col">
+										<input type="password" class="form-control mb-2" name="password" id="password" placeholder="Password" required>
+									</div>
+								</div>
+								<div class="form-row">
+									<div class="col">
+										<button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		<!-- END Featured Section -->
+
+		<!-- jQuery library -->
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<!-- Bootstrap -->
+		<script src="/js/bootstrap.min.js"></script>
+		<!-- Custom js -->
+		<script type="text/javascript" src="/js/custom.js"></script>
+	</body>
+</html>

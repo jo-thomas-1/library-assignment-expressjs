@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title><%=title%></title>
+		<!-- Favicon -->
+		<link rel="shortcut icon" type="image/icon" href="images/favicon.ico"/>
+		<!-- Font Awesome -->
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- Slick slider -->
+		<link href="css/slick.css" rel="stylesheet">
+		<!-- Theme color -->
+		<link id="switcher" href="css/default-theme.css" rel="stylesheet">
+		<!-- Main Style -->
+		<link href="css/style.css" rel="stylesheet">
+
+		<!-- Fonts -->
+
+		<!-- Open Sans for body font -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800" rel="stylesheet">
+		<!-- Lato for Title -->
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	</head>
+
+	<body>
+		<!-- Start Header -->
+		<header id="mu-header" class="" role="banner">
+			<div class="container">
+				<nav class="navbar navbar-default mu-navbar">
+					<div class="container-fluid">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+
+							<!-- Text Logo -->
+							<a class="navbar-brand" href="/"><i class="fa fa-book" aria-hidden="true"></i> Library</a>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav mu-menu navbar-right">
+								<%for(i=0; i<nav.length; i++) {%>
+									<li><a href="<%=nav[i]['href']%>"><%=nav[i]['name']%></a></li>
+								<%}%>
+								<%if(current_user === 0){%>
+									<li><a href="/account/login">LOGIN</a></li>
+									<li><a href="/account/register">REGISTER</a></li>
+								<%} else {%>
+									<li><a href="/account/logout">LOGOUT</a></li>
+									<li>
+										<a href="/account" id="menu_username">
+											<b>Hi! <%=current_user['nickname']%></b>
+										</a>
+										<style>
+											#menu_username:after {
+												background-color: rgb(255 255 255 / 0%);
+											}
+										</style>
+									</li>
+								<%}%>
+							</ul>
+						</div><!-- /.navbar-collapse -->
+					</div><!-- /.container-fluid -->
+				</nav>
+			</div>
+		</header>
+		<!-- End Header -->
+
+		<!-- Start Featured Slider -->
+
+		<section id="mu-hero">
+			<div class="container">
+				<div class="row">
+
+					<div class="col-md-6 col-sm-6 col-sm-push-6">
+						<div class="mu-hero-right">
+							<img src="images/ebook.png" alt="Ebook img">
+						</div>
+					</div>
+
+					<div class="col-md-6 col-sm-6 col-sm-pull-6">
+						<div class="mu-hero-left">
+							<h1>The Perfect Library with everything you need</h1>
+							<p>A curated collection of sources of information and similar resources, selected by experts and made accessible to a all for reference.</p>
+							<p>
+								<i class="fa fa-quote-left" style="color: white; font-size: 2em;"></i> 
+								<b style="font-size: 1.5em;"><%=quote['quote']%>"</b>
+							</p>
+							<p style="text-align: right; margin-right: 3em; font-weight: bold; font-size: 1.5em;">- <%=quote['quotee']%></p>
+							<a href="/account" class="mu-primary-btn">Join Us Now!</a>
+							<span>*Click here to get your free lifetime subscription to our library</span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</section>
+		
+		<!-- Start Featured Slider -->
+		
+		<!-- Start main content -->
+			
+		<main role="main">
+
+			<!-- Start Counter -->
+			<section id="mu-counter">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="mu-counter-area">
+
+								<div class="mu-counter-block">
+									<div class="row">
+
+										<!-- Start Single Counter -->
+										<div class="col-md-4 col-sm-10">
+											<div class="mu-single-counter">
+												<i class="fa fa-files-o" aria-hidden="true"></i>
+												<div class="counter-value" data-count="<%=book_count%>">0</div>
+												<h5 class="mu-counter-name">Total Books</h5>
+											</div>
+										</div>
+										<!-- / Single Counter -->
+
+										<!-- Start Single Counter -->
+										<div class="col-md-4 col-sm-10">
+											<div class="mu-single-counter">
+												<i class="fa fa-users" aria-hidden="true"></i>
+												<div class="counter-value" data-count="<%=user_count%>">0</div>
+												<h5 class="mu-counter-name">Active Readers</h5>
+											</div>
+										</div>
+										<!-- / Single Counter -->
+
+										<!-- Start Single Counter -->
+										<div class="col-md-4 col-sm-10">
+											<div class="mu-single-counter">
+												<i class="fa fa-trophy" aria-hidden="true"></i>
+												<div class="counter-value" data-count="03">0</div>
+												<h5 class="mu-counter-name">Got Awards</h5>
+											</div>
+										</div>
+										<!-- / Single Counter -->
+
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End Counter -->			
+
+			<!-- Start Video Review -->
+			<section id="mu-video-review">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="mu-video-review-area">
+
+								<div class="mu-heading-area">
+									<h2 class="mu-heading-title">Check Out Our Video Review</h2>
+									<span class="mu-header-dot"></span>
+									<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever</p>
+								</div>
+
+								<!-- Start Video Review Content -->
+								<div class="mu-video-review-content">
+									<iframe class="mu-video-iframe" width="100%" height="480" src="https://www.youtube.com/embed/T4ySAlBt2Ug" frameborder="0" allowfullscreen></iframe>
+								</div>
+								<!-- End Video Review Content -->
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End Video Review -->
+
+			<!-- Start Author -->
+			<section id="mu-author">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="mu-author-area">
+
+								<div class="mu-heading-area">
+									<h2 class="mu-heading-title">A message to our users</h2>
+									<span class="mu-header-dot"></span>
+								</div>
+
+								<!-- Start Author Content -->
+								<div class="mu-author-content">
+									<div class="row">
+										<div class="col-md-6">
+											<div class="mu-author-image">
+												<img src="images/author.jpg" alt="Author Image">
+											</div>
+										</div>
+										<div class="col-md-6">
+											<div class="mu-author-info">
+												<h3>Athena Thomas (Director)</h3>
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo suscipit facilis ipsum ullam reiciendis odio error iste neque ratione libero rem accusamus voluptatibus, nihil unde maiores sunt nisi. Assumenda, consectetur.</p>
+
+												<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptate, dolorem error neque! Dolores similique ut iusto odit esse ipsam, nesciunt pariatur animi minima maiores mollitia cupiditate ad ipsum deleniti perspiciatis!</p>
+												<img class="mu-author-sign" src="images/author-signature.png" alt="Author Signature">
+
+												<div class="mu-author-social">
+													<a href="https://www.facebook.com/" target="_blank"><i class="fa fa-facebook"></i></a>
+													<a href="https://twitter.com/?lang=en" target="_blank"><i class="fa fa-twitter"></i></a>
+													<a href="https://linkedin.com/" target="_blank"><i class="fa fa-linkedin"></i></a>
+												</div>
+
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- End Author Content -->
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End Author -->
+
+			<!-- Start Testimonials -->
+			<section id="mu-testimonials">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="mu-testimonials-area">
+								<div class="mu-heading-area">
+									<h2 class="mu-heading-title">What Our Readers Says</h2>
+									<span class="mu-header-dot"></span>
+								</div>
+
+								<div class="mu-testimonials-block">
+									<ul class="mu-testimonial-slide">
+
+										<li>
+											<p>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever."</p>
+											<img class="mu-rt-img" src="images/reader-1.jpg" alt="img">
+											<h5 class="mu-rt-name"> - Alice Boga</h5>
+											<span class="mu-rt-title">CEO, Apple Inc.</span>
+										</li>
+
+										<li>
+											<p>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever."</p>
+											<img class="mu-rt-img" src="images/reader-2.jpg" alt="img">
+											<h5 class="mu-rt-name"> - Jhon Doe</h5>
+											<span class="mu-rt-title">Director, Google Inc.</span>
+										</li>
+
+										<li>
+											<p>"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever."</p>
+											<img class="mu-rt-img" src="images/reader-3.jpg" alt="img">
+											<h5 class="mu-rt-name"> - Jessica Doe</h5>
+											<span class="mu-rt-title">Web Developer</span>
+										</li>
+
+									</ul>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End Testimonials -->
+
+		
+			<!-- Start Contact -->
+			<section id="mu-contact">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="mu-contact-area">
+
+								<div class="mu-heading-area">
+									<h2 class="mu-heading-title">Drop Us A Message</h2>
+									<span class="mu-header-dot"></span>
+								</div>
+
+								<!-- Start Contact Content -->
+								<div class="mu-contact-content">
+
+									<div id="form-messages"></div>
+									<form id="ajax-contact" method="post" action="mailer.php" class="mu-contact-form">
+										<div class="form-group">                
+											<input type="text" class="form-control" placeholder="Name" id="name" name="name" required>
+										</div>
+										<div class="form-group">                
+											<input type="email" class="form-control" placeholder="Enter Email" id="email" name="email" required>
+										</div>              
+										<div class="form-group">
+											<textarea class="form-control" placeholder="Message" id="message" name="message" required></textarea>
+										</div>
+										<button type="submit" class="mu-send-msg-btn"><span>SUBMIT</span></button>
+									</form>
+
+								</div>
+								<!-- End Contact Content -->
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- End Contact -->
+
+		</main>
+		
+		<!-- End main content -->	
+
+	
+
+		<!-- jQuery library -->
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<!-- Bootstrap -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- Slick slider -->
+		<script type="text/javascript" src="js/slick.min.js"></script>
+		<!-- Counter js -->
+		<script type="text/javascript" src="js/counter.js"></script>
+		<!-- Ajax contact form  -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- Custom js -->
+		<script type="text/javascript" src="js/custom.js"></script>
+	</body>
+</html>

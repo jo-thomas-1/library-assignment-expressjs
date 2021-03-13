@@ -1,0 +1,14 @@
+{
+    "jothomas": {
+        "name": "Jo Thomas",
+        "nickname": "Jo",
+        "password": "12345",
+        "email": "jothomas1996@gmail.com"
+    },
+    "john": {
+        "name": "John Paul",
+        "nickname": "John",
+        "password": "12345",
+        "email": "johnpaul@gmail.com"
+    }
+}

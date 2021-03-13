@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title><%=title%></title>
+		<!-- Favicon -->
+		<link rel="shortcut icon" type="image/icon" href="images/favicon.ico"/>
+		<!-- Font Awesome -->
+		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+		<!-- Bootstrap -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<!-- Slick slider -->
+		<link href="css/slick.css" rel="stylesheet">
+		<!-- Theme color -->
+		<link id="switcher" href="css/default-theme.css" rel="stylesheet">
+		<!-- Main Style -->
+		<link href="css/style.css" rel="stylesheet">
+
+		<!-- Fonts -->
+
+		<!-- Open Sans for body font -->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700,800" rel="stylesheet">
+		<!-- Lato for Title -->
+		<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	</head>
+
+	<body>
+		<!-- Start Header -->
+		<header id="mu-header" class="" role="banner">
+			<div class="container">
+				<nav class="navbar navbar-default mu-navbar">
+					<div class="container-fluid">
+						<!-- Brand and toggle get grouped for better mobile display -->
+						<div class="navbar-header">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+								<span class="sr-only">Toggle navigation</span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+								<span class="icon-bar"></span>
+							</button>
+
+							<!-- Text Logo -->
+							<a class="navbar-brand" href="/" style="color: black;"><i class="fa fa-book" aria-hidden="true"></i> Library</a>
+						</div>
+
+						<!-- Collect the nav links, forms, and other content for toggling -->
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav mu-menu navbar-right">
+								<%for(i=0; i<nav.length; i++) {%>
+									<li><a href="<%=nav[i]['href']%>" style="color: black;"><%=nav[i]['name']%></a></li>
+								<%}%>
+								<%if(current_user === 0){%>
+									<li><a href="/account/login" style="color: black;">LOGIN</a></li>
+								<%} else {%>
+									<li><a href="/account/logout" style="color: black;">LOGOUT</a></li>
+									<li>
+										<a href="/account" id="menu_username">
+											<b>Hi! <%=current_user['nickname']%></b>
+										</a>
+										<style>
+											#menu_username:after {
+												background-color: rgb(255 255 255 / 0%);
+											}
+										</style>
+									</li>
+								<%}%>
+							</ul>
+						</div><!-- /.navbar-collapse -->
+					</div><!-- /.container-fluid -->
+				</nav>
+			</div>
+		</header>
+		<style>
+			.navbar-default .mu-menu li a:after {
+				background: black;
+			}
+		</style>
+		<!-- End Header -->
+		<!-- Start Contact -->
+		<section id="mu-contact">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="mu-contact-area">
+
+							<div class="mu-heading-area">
+								<h2 class="mu-heading-title">Drop Us A Message</h2>
+								<span class="mu-header-dot"></span>
+							</div>
+
+							<!-- Start Contact Content -->
+							<div class="mu-contact-content">
+
+								<div id="form-messages"></div>
+								<form id="ajax-contact" method="post" action="mailer.php" class="mu-contact-form">
+									<div class="form-group">                
+										<input type="text" class="form-control" placeholder="Name" id="name" name="name" required>
+									</div>
+									<div class="form-group">                
+										<input type="email" class="form-control" placeholder="Enter Email" id="email" name="email" required>
+									</div>              
+									<div class="form-group">
+										<textarea class="form-control" placeholder="Message" id="message" name="message" required></textarea>
+									</div>
+									<button type="submit" class="mu-send-msg-btn"><span>SUBMIT</span></button>
+								</form>
+
+							</div>
+							<!-- End Contact Content -->
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- End Contact -->
+		
+		<!-- End main content -->	
+
+	
+
+		<!-- jQuery library -->
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<!-- Bootstrap -->
+		<script src="js/bootstrap.min.js"></script>
+		<!-- Slick slider -->
+		<script type="text/javascript" src="js/slick.min.js"></script>
+		<!-- Counter js -->
+		<script type="text/javascript" src="js/counter.js"></script>
+		<!-- Ajax contact form  -->
+		<script type="text/javascript" src="js/app.js"></script>
+		<!-- Custom js -->
+		<script type="text/javascript" src="js/custom.js"></script>
+	</body>
+</html>
